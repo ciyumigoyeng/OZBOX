@@ -1,0 +1,111 @@
+<!DOCTYPE html> <html> 
+<head> 
+ <title>OSBOX Booth</title>
+ <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            background-image: url('corals.png');
+            background-size: cover;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: 'Elms+Sans', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 90px;
+            text-align: center;
+            margin-top: -50px;
+            margin-bottom: -25px;
+            text-shadow: 0px 0px 10px rgba(8, 8, 49, 0.596);
+        }
+        p {
+            font-family: 'Elms+Sans', sans-serif;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #0c3781;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-family: 'Elms+Sans', sans-serif;
+            box-shadow: 0px 0px 5px rgba(8, 8, 49, 0.596);
+        }
+        button:hover {
+            background-color: #479de2;
+        }
+        #capture, #stop-timer {
+            position: absolute;
+            left: 50%;
+            bottom: -140px;
+            transform: translateX(-50%);
+        }
+        video {
+            border-radius: 20px;
+            box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+        }
+        #video-container {
+            position: relative;
+            display: inline-block;
+        }
+        #timer-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+        #frame-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body> 
+    <h1>OSBOX</h1>
+    <p><i>Ready to capture your moment?</i></p>
+    <center>
+        <div id="video-container">
+            <video id="webcam" width="640" height="480"></video>
+            <div id="timer-display" style="display:none;">3</div>
+            <img id="frame-overlay" src="osoz.png" alt="Frame" />
+        </div>
+        <div id="preview-container" style="display:none; margin-top:20px;">
+            <canvas id="preview" width="640" height="480"></canvas>
+            <br>
+            <button id="save" style="margin-top:10px; padding:10px 20px; font-size:16px;">Save Photo</button>
+            <button id="retake" style="margin-top:10px; padding:10px 20px; font-size:16px; margin-left:10px;">Retake</button>
+        </div>
+        <button id="capture" style="margin-top:20px; padding:10px 20px; font-size:16px;">Capture</button>
+        <button id="stop-timer" style="margin-top:20px; padding:10px 20px; font-size:16px; display:none;">Stop Timer</button>
+        <script src="script_photo.js"></script>
+        
+    </center>
+</body>
+
+
+</html>
